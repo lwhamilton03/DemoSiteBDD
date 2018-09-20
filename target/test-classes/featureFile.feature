@@ -10,12 +10,12 @@ So that I can have the user and the log in
    When I log into the page using username "<user>" and passwprd "<password>"
    Then I am successfully logged in
    
-   Examples:
+   Examples: Username and Password
     | user | password |
     | Lucy | Lemon |
     | Henry | Kiwi |
     | Cooper | Banana |
     | Vince | Dragon |
-    | Steve | Strawberry |
+    | Steve | Strawb |
    
   

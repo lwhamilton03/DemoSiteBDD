@@ -1,5 +1,13 @@
 package com.qa.DemoSiteBDD;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
+//import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -32,6 +40,21 @@ public class LogPage {
 
 	public void setCheckLogInSuccess(WebElement checkLogInSuccess) {
 		this.checkLogInSuccess = checkLogInSuccess;
+	}
+	
+	public String takeScreenShot(WebDriver drive)
+	{
+		File scrFile = ((TakesScreenshot)drive).getScreenshotAs(OutputType.FILE);
+		System.out.println(scrFile.getAbsolutePath());
+		try {
+			FileUtils.copyFile(scrFile, new File(Constants.LOGSCREENSHOT));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return Constants.LOGSCREENSHOT;
+		//System.out.println(scrFile.getAbsolutePath());
+
 	}
 	
 }
